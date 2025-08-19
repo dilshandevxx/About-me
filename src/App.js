@@ -1,3 +1,5 @@
+////////////////////////////////////////////////
+
 import React, { useState, useEffect } from "react";
 import {
   Sun,
@@ -17,21 +19,18 @@ import {
 } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import img1 from "./assets/image1.jpg";
 import img2 from "./assets/image2.jpg";
-import img3 from "./assets/image3.jpg";
-import img4 from "./assets/image4.jpg";
 import img5 from "./assets/image5.jpg";
 import img6 from "./assets/image6.jpg";
 import img7 from "./assets/image7.jpg";
 import myImage from "./assets/me.jpg";
-import logo from "./assets/code.png";
+
 // Custom Typing Animation Component
 const TypingEffect = () => {
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(70);
+  const [typingSpeed, setTypingSpeed] = useState(150);
   const toRotate = [
     "A passionate Software Engineering Student.",
     "A Full-Stack Developer.",
@@ -39,7 +38,7 @@ const TypingEffect = () => {
     "A Mobile App Developer.",
     "A Lifelong Learner.",
   ];
-  const period = 200;
+  const period = 2000;
 
   useEffect(() => {
     let ticker;
@@ -282,7 +281,7 @@ const App = () => {
               >
                 Hi, I'm{" "}
                 <span className="text-indigo-600 dark:text-indigo-400">
-                  DILSHAN
+                  Your Name
                 </span>
               </motion.h1>
               <motion.div
@@ -293,11 +292,11 @@ const App = () => {
               </motion.div>
               <motion.a
                 href="#contact"
-                className="inline-block bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-8 py-3 rounded-full font-semibold"
+                className="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-3 rounded-full font-semibold"
                 variants={itemVariants}
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0px 0px 20px rgba(129, 140, 248, 0.8)",
+                  boxShadow: "0px 0px 20px rgba(34, 211, 238, 0.8)",
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
               >
@@ -455,7 +454,7 @@ const App = () => {
               title="Student Management System"
               description="A system to manage student records, courses, and grades..."
               tags={["Java", "Spring Boot", "MySQL", "Thymeleaf"]}
-              imgSrc={img7}
+              imgSrc={img6}
               liveLink="#"
               codeLink="#"
               variants={itemVariants}
@@ -464,7 +463,7 @@ const App = () => {
               title="Web-Based Chat Application"
               description="A real-time chat application using WebSockets..."
               tags={["Node.js", "Socket.IO", "React", "Tailwind CSS"]}
-              imgSrc={img6}
+              imgSrc={img7}
               liveLink="#"
               codeLink="#"
               variants={itemVariants}
@@ -481,7 +480,7 @@ const App = () => {
               Experience & Education
             </h2>
             <div className="relative">
-              <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-gray-300 dark:bg-slate-600 hidden md:block"></div>
+              <div className="absolute top-0 left-6 md:left-1/2 md:-translate-x-1/2 h-full w-0.5 bg-gray-300 dark:bg-slate-600"></div>
               <TimelineItem
                 icon={<Briefcase />}
                 date="2024 - Present"
@@ -755,15 +754,15 @@ const TimelineItem = ({ icon, date, title, company, description, side }) => {
       animate={controls}
       initial="hidden"
       variants={variants}
-      className={`mb-8 flex justify-between items-center w-full ${
+      className={`relative md:flex md:justify-between items-center w-full mb-12 ${
         side === "right" ? "md:flex-row-reverse" : "flex-row"
       }`}
     >
       <div className="hidden md:block w-5/12"></div>
-      <div className="z-10 flex items-center justify-center w-12 h-12 bg-indigo-600 rounded-full text-white absolute left-1/2 -translate-x-1/2">
+      <div className="z-10 flex items-center justify-center w-12 h-12 bg-indigo-600 rounded-full text-white absolute top-0 left-0 md:left-1/2 md:-translate-x-1/2">
         {icon}
       </div>
-      <div className="bg-white dark:bg-slate-800/50 backdrop-blur-sm rounded-lg shadow-md p-6 w-full md:w-5/12">
+      <div className="bg-white dark:bg-slate-800/50 backdrop-blur-sm rounded-lg shadow-md p-6 w-full ml-16 md:ml-0 md:w-5/12">
         <p className="text-sm text-indigo-600 dark:text-indigo-400 font-semibold mb-1">
           {date}
         </p>
