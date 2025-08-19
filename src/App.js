@@ -281,7 +281,7 @@ const App = () => {
               >
                 Hi, I'm{" "}
                 <span className="text-indigo-600 dark:text-indigo-400">
-                  Your Name
+                  dilshan
                 </span>
               </motion.h1>
               <motion.div
