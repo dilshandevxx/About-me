@@ -446,7 +446,7 @@ const App = () => {
               title="E-Commerce Platform"
               description="A full-stack web application for an online store..."
               tags={["React", "Node.js", "Express", "MongoDB"]}
-              imgSrc="https://placehold.co/600x400/4F46E5/FFFFFF?text=E-Commerce"
+              imgSrc={img2}
               liveLink="#"
               codeLink="#"
               variants={itemVariants}
@@ -455,7 +455,7 @@ const App = () => {
               title="Student Management System"
               description="A system to manage student records, courses, and grades..."
               tags={["Java", "Spring Boot", "MySQL", "Thymeleaf"]}
-              imgSrc="https://placehold.co/600x400/10B981/FFFFFF?text=Student+System"
+              imgSrc={img7}
               liveLink="#"
               codeLink="#"
               variants={itemVariants}
@@ -464,7 +464,7 @@ const App = () => {
               title="Web-Based Chat Application"
               description="A real-time chat application using WebSockets..."
               tags={["Node.js", "Socket.IO", "React", "Tailwind CSS"]}
-              imgSrc="https://placehold.co/600x400/F59E0B/FFFFFF?text=Chat+App"
+              imgSrc={img6}
               liveLink="#"
               codeLink="#"
               variants={itemVariants}
