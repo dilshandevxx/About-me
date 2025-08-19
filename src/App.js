@@ -622,7 +622,7 @@ const App = () => {
 
       <footer className="bg-gray-100 dark:bg-transparent py-6">
         <div className="container mx-auto px-6 text-center text-gray-600 dark:text-gray-400">
-          <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} dilshan. All Rights Reserved.</p>
         </div>
       </footer>
 
