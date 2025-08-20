@@ -22,13 +22,14 @@ import myImage from "./assets/me.jpg";
 import calculater from "./assets/calculater-beauty.jpg";
 import weather from "./assets/weather.webp";
 import todo from "./assets/todo.jpg";
+import codingImage from "./assets/coding.jpg";
 
 // Custom Typing Animation Component
 const TypingEffect = () => {
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
+  const [typingSpeed, setTypingSpeed] = useState(60);
   const toRotate = [
     "A passionate Software Engineering Student.",
     "A Full-Stack Developer.",
@@ -57,7 +58,7 @@ const TypingEffect = () => {
         setLoopNum(loopNum + 1);
         setTypingSpeed(150);
       } else if (isDeleting) {
-        setTypingSpeed((prev) => prev / 1.1);
+        setTypingSpeed((prev) => prev / 1.4);
       }
     };
 
@@ -75,6 +76,36 @@ const TypingEffect = () => {
   );
 };
 
+//About section typing text
+
+const AboutMeTyping = () => {
+  // The full text you want to display
+  const fullText =
+    "Hi, I'm a second-year Software Engineering student at the Sabaragamuwa University of Sri Lanka. My passion lies in creating efficient, scalable, and user-friendly software solutions...";
+
+  const [displayedText, setDisplayedText] = useState("");
+
+  useEffect(() => {
+    // This effect runs whenever `displayedText` changes
+    if (displayedText.length < fullText.length) {
+      const timeoutId = setTimeout(() => {
+        // Add the next character from fullText
+        setDisplayedText(fullText.substring(0, displayedText.length + 1));
+      }, 80); // 30ms delay for each character
+
+      // Cleanup function to clear the timeout if the component unmounts
+      return () => clearTimeout(timeoutId);
+    }
+  }, [displayedText, fullText]); // Re-run the effect when displayedText changes
+
+  return (
+    <p className="text-green-400 font-mono text-lg md:text-xl bg-gray-900 p-4 rounded-lg">
+      {displayedText}
+      {/* Blinking FAT cursor using a block character */}
+      <span className="animate-pulse font-bold">█</span>
+    </p>
+  );
+};
 // Refined Background Smoke Animation
 
 const BackgroundAnimation = () => {
@@ -344,7 +375,7 @@ const App = () => {
             >
               <div className="w-60 h-60 md:w-72 md:h-72 rounded-lg overflow-hidden shadow-xl transform rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105">
                 <img
-                  src={img5}
+                  src={codingImage}
                   alt="About me"
                   className="w-full h-full object-cover"
                 />
@@ -357,12 +388,7 @@ const App = () => {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
-              <p>
-                Hello! I'm a final-year Software Engineering student at the
-                Sabaragamuwa University of Sri Lanka. My passion lies in
-                creating efficient, scalable, and user-friendly software
-                solutions...
-              </p>
+              <AboutMeTyping />
             </motion.div>
           </div>
         </AnimatedSection>
