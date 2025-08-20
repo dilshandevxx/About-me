@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/About-me/static/css/main.e273db00.css",
-    "main.js": "/About-me/static/js/main.18eaaedc.js",
+    "main.css": "/About-me/static/css/main.5f28f1b8.css",
+    "main.js": "/About-me/static/js/main.5077ffb2.js",
     "static/js/453.3ae75a35.chunk.js": "/About-me/static/js/453.3ae75a35.chunk.js",
     "static/media/todo.jpg": "/About-me/static/media/todo.f931c880b534e6380877.jpg",
     "static/media/image5.jpg": "/About-me/static/media/image5.65c8cd2c6125e5e3809d.jpg",
     "static/media/calculater-beauty.jpg": "/About-me/static/media/calculater-beauty.1a21ecd167a460ec0b74.jpg",
+    "static/media/coding.jpg": "/About-me/static/media/coding.f13ad3903df0828a4f92.jpg",
     "static/media/me.jpg": "/About-me/static/media/me.42b603cfb64eb465175b.jpg",
     "static/media/weather.webp": "/About-me/static/media/weather.52d7b43c9c0480de1971.webp",
     "index.html": "/About-me/index.html",
-    "main.e273db00.css.map": "/About-me/static/css/main.e273db00.css.map",
-    "main.18eaaedc.js.map": "/About-me/static/js/main.18eaaedc.js.map",
+    "main.5f28f1b8.css.map": "/About-me/static/css/main.5f28f1b8.css.map",
+    "main.5077ffb2.js.map": "/About-me/static/js/main.5077ffb2.js.map",
     "453.3ae75a35.chunk.js.map": "/About-me/static/js/453.3ae75a35.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e273db00.css",
-    "static/js/main.18eaaedc.js"
+    "static/css/main.5f28f1b8.css",
+    "static/js/main.5077ffb2.js"
   ]
 }
