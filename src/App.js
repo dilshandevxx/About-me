@@ -76,37 +76,51 @@ const TypingEffect = () => {
 };
 
 // Refined Background Smoke Animation
+
 const BackgroundAnimation = () => {
-  const particles = Array.from({ length: 15 }); // More particles
+  const smokeClouds = Array.from({ length: 12 });
+
   return (
-    <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
-      {particles.map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full"
-          style={{
-            width: Math.random() * 300 + 150, // Wider size range
-            height: Math.random() * 300 + 150,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 25 - 30}%`,
-            background:
-              "radial-gradient(circle, rgba(165, 180, 252, 0.12) 0%, rgba(165, 180, 252, 0) 65%)", // More visible gradient
-          }}
-          animate={{
-            x: "130vw",
-            rotate: Math.random() * 180 - 90,
-            scale: Math.random() * 0.5 + 0.5,
-          }}
-          transition={{
-            duration: Math.random() * 30 + 30, // Slower, more varied speed
-            repeat: Infinity,
-            repeatType: "loop",
-            ease: "linear",
-            delay: Math.random() * 15,
-          }}
-        />
-      ))}
-    </div>
+    <motion.div
+      className="fixed inset-0 pointer-events-none -z-10 overflow-hidden bg-black"
+      initial={{ opacity: 0 }} // hidden at start
+      animate={{ opacity: 1 }} // fade in
+      transition={{ duration: 2, delay: 1 }} // fade in after 1s
+    >
+      {smokeClouds.map((_, i) => {
+        const size = Math.random() * 500 + 300; // smoke patch size
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 100;
+        const duration = Math.random() * 60 + 50;
+
+        return (
+          <motion.div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              width: size,
+              height: size,
+              top: `${startY}%`,
+              left: `${startX}%`,
+              background:
+                "radial-gradient(circle, rgba(200,200,200,0.25) 0%, rgba(200,200,200,0) 70%)",
+              filter: "blur(150px)",
+            }}
+            animate={{
+              x: Math.random() * 400 - 200,
+              y: Math.random() * 400 - 200,
+              rotate: Math.random() * 360,
+              opacity: [0.15, 0.35, 0.15],
+            }}
+            transition={{
+              duration: duration,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        );
+      })}
+    </motion.div>
   );
 };
 
@@ -582,47 +596,86 @@ const App = () => {
         </AnimatedSection>
       </main>
 
-      <footer className="bg-gray-100 dark:bg-transparent">
-        <div className="container mx-auto px-6 text-center py-12">
-          <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">
-            Connect with me
-          </h3>
-          <motion.div
-            className="flex justify-center space-x-8"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            variants={containerVariants}
-          >
-            <motion.a
-              href="#"
-              variants={itemVariants}
-              className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-transform duration-300"
-              whileHover={{ scale: 1.2, y: -5 }}
-            >
-              <Github size={32} />
-            </motion.a>
-            <motion.a
-              href="#"
-              variants={itemVariants}
-              className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-transform duration-300"
-              whileHover={{ scale: 1.2, y: -5 }}
-            >
-              <Linkedin size={32} />
-            </motion.a>
-            <motion.a
-              href="mailto:your.email@example.com"
-              variants={itemVariants}
-              className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-transform duration-300"
-              whileHover={{ scale: 1.2, y: -5 }}
-            >
-              <Mail size={32} />
-            </motion.a>
-          </motion.div>
-        </div>
-        <div className="border-t border-gray-200 dark:border-slate-700 py-6">
-          <div className="container mx-auto px-6 text-center text-gray-600 dark:text-gray-400">
-            <p>&copy; 2025 Dilshan. All Rights Reserved.</p>
+      <footer className="bg-gray-900 text-gray-gray-200 py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* About Section */}
+            <div>
+              <h3 className="text-xl font-bold mb-4">About Me</h3>
+              <p className="text-gray-400">
+                I’m a software engineer creating modern web apps and learning
+                new tech. Passionate about clean, creative solutions.
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="#home"
+                    className="hover:text-white transition-colors"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#projects"
+                    className="hover:text-white transition-colors"
+                  >
+                    Projects
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#about"
+                    className="hover:text-white transition-colors"
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#contact"
+                    className="hover:text-white transition-colors"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Connect Section */}
+            <div>
+              <h3 className="text-xl font-bold mb-4">Connect With Me</h3>
+              <div className="flex space-x-6">
+                <a
+                  href="#"
+                  className="hover:text-white transition-transform transform hover:scale-125"
+                >
+                  <Github size={28} />
+                </a>
+                <a
+                  href="#"
+                  className="hover:text-white transition-transform transform hover:scale-125"
+                >
+                  <Linkedin size={28} />
+                </a>
+                <a
+                  href="mailto:your.email@example.com"
+                  className="hover:text-white transition-transform transform hover:scale-125"
+                >
+                  <Mail size={28} />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Text without border */}
+          <div className="mt-12 text-center text-gray-500 text-sm">
+            &copy; {new Date().getFullYear()} Dilshan. All Rights Reserved.
           </div>
         </div>
       </footer>
