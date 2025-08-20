@@ -1,5 +1,3 @@
-////////////////////////////////////////////////
-
 import React, { useState, useEffect } from "react";
 import {
   Sun,
@@ -19,11 +17,11 @@ import {
 } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import img2 from "./assets/image2.jpg";
 import img5 from "./assets/image5.jpg";
-import img6 from "./assets/image6.jpg";
-import img7 from "./assets/image7.jpg";
 import myImage from "./assets/me.jpg";
+import calculater from "./assets/calculater-beauty.jpg";
+import weather from "./assets/weather.webp";
+import todo from "./assets/todo.jpg";
 
 // Custom Typing Animation Component
 const TypingEffect = () => {
@@ -79,7 +77,7 @@ const TypingEffect = () => {
 
 // Refined Background Smoke Animation
 const BackgroundAnimation = () => {
-  const particles = Array.from({ length: 7 }); // Reduced particle count
+  const particles = Array.from({ length: 15 }); // More particles
   return (
     <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
       {particles.map((_, i) => (
@@ -87,12 +85,12 @@ const BackgroundAnimation = () => {
           key={i}
           className="absolute rounded-full"
           style={{
-            width: Math.random() * 200 + 100, // Larger, softer shapes
-            height: Math.random() * 200 + 100,
+            width: Math.random() * 300 + 150, // Wider size range
+            height: Math.random() * 300 + 150,
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 25 - 30}%`,
             background:
-              "radial-gradient(circle, rgba(165, 180, 252, 0.05) 0%, rgba(165, 180, 252, 0) 70%)", // Soft radial gradient
+              "radial-gradient(circle, rgba(165, 180, 252, 0.12) 0%, rgba(165, 180, 252, 0) 65%)", // More visible gradient
           }}
           animate={{
             x: "130vw",
@@ -100,7 +98,7 @@ const BackgroundAnimation = () => {
             scale: Math.random() * 0.5 + 0.5,
           }}
           transition={{
-            duration: Math.random() * 30 + 25, // Slower duration
+            duration: Math.random() * 30 + 30, // Slower, more varied speed
             repeat: Infinity,
             repeatType: "loop",
             ease: "linear",
@@ -154,7 +152,7 @@ const Logo = () => (
 
 // Main App Component
 const App = () => {
-  const [theme, setTheme] = useState("dark"); // Set initial state to dark
+  const [theme, setTheme] = useState("dark");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -281,7 +279,7 @@ const App = () => {
               >
                 Hi, I'm{" "}
                 <span className="text-indigo-600 dark:text-indigo-400">
-                  dilshan
+                  Dilshan
                 </span>
               </motion.h1>
               <motion.div
@@ -312,7 +310,7 @@ const App = () => {
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-gradient-to-br from-indigo-400 to-purple-500 shadow-2xl">
                 <img
                   src={myImage}
-                  alt="dilshan"
+                  alt="Dilshan"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -324,7 +322,7 @@ const App = () => {
           <h2 className="text-3xl font-bold text-center mb-12">About Me</h2>
           <div className="flex flex-col md:flex-row items-center gap-12">
             <motion.div
-              className="md:w-1/3 flex justify-center"
+              className="md:w-1/2 flex justify-center"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -339,7 +337,7 @@ const App = () => {
               </div>
             </motion.div>
             <motion.div
-              className="md:w-2/3 text-lg text-gray-600 dark:text-gray-300 space-y-4"
+              className="md:w-1/2 text-lg text-gray-600 dark:text-gray-300 space-y-4"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -442,28 +440,30 @@ const App = () => {
             variants={containerVariants}
           >
             <ProjectCard
-              title="E-Commerce Platform"
-              description="A full-stack web application for an online store..."
-              tags={["React", "Node.js", "Express", "MongoDB"]}
-              imgSrc={img2}
+              title="To Do App"
+              description="A simple React app to manage daily tasks with add, edit, and delete functionality."
+              tags={["React", "CSS"]}
+              imgSrc={todo}
               liveLink="#"
               codeLink="#"
               variants={itemVariants}
             />
+
             <ProjectCard
-              title="Student Management System"
-              description="A system to manage student records, courses, and grades..."
-              tags={["Java", "Spring Boot", "MySQL", "Thymeleaf"]}
-              imgSrc={img6}
+              title="Weather App"
+              description="A web app that fetches live weather data using an API and displays it in a clean UI."
+              tags={["React", "API", "JavaScript"]}
+              imgSrc={weather}
               liveLink="#"
               codeLink="#"
               variants={itemVariants}
             />
+
             <ProjectCard
-              title="Web-Based Chat Application"
-              description="A real-time chat application using WebSockets..."
-              tags={["Node.js", "Socket.IO", "React", "Tailwind CSS"]}
-              imgSrc={img7}
+              title="Calculator"
+              description="A responsive calculator app built with React, performing basic arithmetic operations."
+              tags={["React", "JavaScript", "CSS"]}
+              imgSrc={calculater}
               liveLink="#"
               codeLink="#"
               variants={itemVariants}
@@ -484,8 +484,8 @@ const App = () => {
               <TimelineItem
                 icon={<Briefcase />}
                 date="2024 - Present"
-                title="Software Engineering Intern"
-                company="Tech Solutions Lanka"
+                title="ML Enthasis"
+                company=" "
                 description="Contributed to the development of a client's web application using React and Node.js..."
                 side="left"
               />
@@ -580,8 +580,10 @@ const App = () => {
             </form>
           </motion.div>
         </AnimatedSection>
+      </main>
 
-        <div className="container mx-auto px-6 text-center py-10">
+      <footer className="bg-gray-100 dark:bg-transparent">
+        <div className="container mx-auto px-6 text-center py-12">
           <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">
             Connect with me
           </h3>
@@ -618,11 +620,10 @@ const App = () => {
             </motion.a>
           </motion.div>
         </div>
-      </main>
-
-      <footer className="bg-gray-100 dark:bg-transparent py-6">
-        <div className="container mx-auto px-6 text-center text-gray-600 dark:text-gray-400">
-          <p>&copy; {new Date().getFullYear()} dilshan. All Rights Reserved.</p>
+        <div className="border-t border-gray-200 dark:border-slate-700 py-6">
+          <div className="container mx-auto px-6 text-center text-gray-600 dark:text-gray-400">
+            <p>&copy; 2025 Dilshan. All Rights Reserved.</p>
+          </div>
         </div>
       </footer>
 
@@ -739,8 +740,17 @@ const TimelineItem = ({ icon, date, title, company, description, side }) => {
     if (inView) controls.start("visible");
   }, [controls, inView]);
 
-  const variants = {
+  const desktopVariants = {
     hidden: { opacity: 0, x: side === "left" ? -100 : 100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
+  const mobileVariants = {
+    hidden: { opacity: 0, x: -100 },
     visible: {
       opacity: 1,
       x: 0,
@@ -753,13 +763,13 @@ const TimelineItem = ({ icon, date, title, company, description, side }) => {
       ref={ref}
       animate={controls}
       initial="hidden"
-      variants={variants}
-      className={`relative md:flex md:justify-between items-center w-full mb-12 ${
-        side === "right" ? "md:flex-row-reverse" : "flex-row"
-      }`}
+      variants={window.innerWidth < 768 ? mobileVariants : desktopVariants}
+      className={`relative mb-12 flex justify-between ${
+        side === "right" ? "md:flex-row-reverse" : "md:flex-row"
+      } w-full`}
     >
       <div className="hidden md:block w-5/12"></div>
-      <div className="z-10 flex items-center justify-center w-12 h-12 bg-indigo-600 rounded-full text-white absolute top-0 left-0 md:left-1/2 md:-translate-x-1/2">
+      <div className="z-10 absolute left-0 top-0 md:left-1/2 md:-translate-x-1/2 flex items-center justify-center w-12 h-12 bg-indigo-600 rounded-full text-white">
         {icon}
       </div>
       <div className="bg-white dark:bg-slate-800/50 backdrop-blur-sm rounded-lg shadow-md p-6 w-full ml-16 md:ml-0 md:w-5/12">
