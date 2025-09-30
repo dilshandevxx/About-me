@@ -413,56 +413,31 @@ const App = () => {
                 "JavaScript (ES6+)",
                 "HTML5 & CSS3",
                 "Tailwind CSS",
-                "TypeScript",
               ]}
               variants={itemVariants}
             />
             <SkillCategory
               title="Backend"
               icon={<Server size={24} className="text-indigo-500" />}
-              skills={[
-                "Node.js",
-                "Express.js",
-                "Python (Flask)",
-                "Java (Spring Boot)",
-                "REST APIs",
-              ]}
+              skills={["Node.js", "Express.js", "Python (Flask)"]}
               variants={itemVariants}
             />
             <SkillCategory
               title="Databases & Others"
               icon={<Briefcase size={24} className="text-indigo-500" />}
-              skills={[
-                "MySQL",
-                "MongoDB",
-                "Git & GitHub",
-                "Docker",
-                "AWS Basics",
-              ]}
+              skills={["MySQL", "MongoDB", "Git & GitHub", "AWS Basics"]}
               variants={itemVariants}
             />
             <SkillCategory
               title="AI & Machine Learning"
               icon={<Bot size={24} className="text-indigo-500" />}
-              skills={[
-                "Python",
-                "TensorFlow",
-                "PyTorch",
-                "Scikit-learn",
-                "Pandas",
-              ]}
+              skills={["Python", "Scikit-learn", "Pandas"]}
               variants={itemVariants}
             />
             <SkillCategory
               title="Mobile Development"
               icon={<Smartphone size={24} className="text-indigo-500" />}
-              skills={[
-                "React Native",
-                "Flutter",
-                "Java/Kotlin (Android)",
-                "Swift (iOS)",
-                "Firebase",
-              ]}
+              skills={["Flutter basis", "Firebase"]}
               variants={itemVariants}
             />
           </motion.div>
@@ -678,19 +653,19 @@ const App = () => {
               <h3 className="text-xl font-bold mb-4">Connect With Me</h3>
               <div className="flex space-x-6">
                 <a
-                  href="#"
+                  href="https://github.com/dilshandevxx"
                   className="hover:text-white transition-transform transform hover:scale-125"
                 >
                   <Github size={28} />
                 </a>
                 <a
-                  href="#"
+                  href=" https://www.linkedin.com/in/ishara-dilshan-prathapaarachchi-2162a826a"
                   className="hover:text-white transition-transform transform hover:scale-125"
                 >
                   <Linkedin size={28} />
                 </a>
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:dilshanprathapaarachchi@gmail.com"
                   className="hover:text-white transition-transform transform hover:scale-125"
                 >
                   <Mail size={28} />
